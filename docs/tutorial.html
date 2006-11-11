@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Objenesis : Twenty Second Tutorial</title>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+        
+    
+
+    </head>
+    <body>
+
+        <div id="banner">
+            <a href="index.html"><img id="logo" src="objenesis.png" alt="Objenesis" width="300" height="75"/></a>
+        </div>
+
+        <div id="center" class="Content2Column">
+            <div id="content">
+                <h1 class="FirstChild">Twenty Second Tutorial</h1>
+                
+
+<p>There are two main interfaces in Objenesis:</p>
+
+<ul>
+    <li><strong><a href="#">ClassInstantiator</a></strong>
+        - Instantiates multiple instances of a single class.
+        <pre>interface ClassInstantiator {
+  Object newInstance();
+}</pre>
+    </li>
+    <li><strong><a href="#">InstantiatorStrategy</a></strong>
+        - A particular strategy for how to instantiate a class (as this differs for different types of classes).
+        <pre>interface InstantiatorStrategy {
+  ClassInstantiator newInstantiatorOf(Class type);
+}</pre>
+    </li>
+</ul>
+
+<p><strong>Note:</strong> All Objeneis classes are in the
+    <strong><code>org.objenesis</code></strong> package.</p>
+
+<h1>Step By Step</h1>
+
+<p>There are many different strategies that Objeness uses for instantiating objects based on the JVM vendor,
+JVM version, SecurityManager and type of class being instantiated.</p>
+
+<p>However, by far the simplest strategy is the
+    <code><a href="#">AutomaticInstantiatorStrategy</a></code>, which automatically determines the best
+    strategy - so you don't have to.
+</p>
+
+<pre>InstantiatorStrategy strategy = new AutomaticInstantiatorStrategy();</pre>
+
+<p>Once you have the strategy, you can then create a <code>ClassInstantiator</code>, for a specific type.</p>
+
+<pre>ClassInstantiator thingyInstantiator = builder.newInstantiatorOf(MyThingy.class);</pre>
+
+<p>Finally, you can use this to instantiate new instances of this type.</p>
+
+<pre>MyThingy thingy1 = (MyThingy)thingyInstantiator.newInstance();
+MyThingy thingy2 = (MyThingy)thingyInstantiator.newInstance();
+MyThingy thingy3 = (MyThingy)thingyInstantiator.newInstance();</pre>
+
+<h1>Performance and Threading</h1>
+
+<p>To improve performance, it is best to reuse the <code>InstantiatorStrategy</code> and <code>ClassInstantiator</code>
+    objects as much as possible. For example, if you are instantiating multiple instances of a specific class,
+    do it from the same <code>ClassInstantiator</code>.
+</p>
+
+<p>Both <code>InstantiatorStrategy</code> and <code>ClassInstantiator</code> can be shared between multiple
+    threads and used concurrently. They are thread safe.</p>
+
+<h1>That Code Again</h1>
+
+<p>(For the impatiant)</p>
+
+<pre>InstantiatorStrategy strategy = new AutomaticInstantiatorStrategy();
+ClassInstantiator thingyInstantiator = builder.newInstantiatorOf(MyThingy.class);
+
+MyThingy thingy1 = (MyThingy)thingyInstantiator.newInstance();
+MyThingy thingy2 = (MyThingy)thingyInstantiator.newInstance();
+MyThingy thingy3 = (MyThingy)thingyInstantiator.newInstance();</pre>
+
+
+                <br/><br/>
+            </div>
+        </div>
+
+        <div class="SidePanel" id="left">
+                <div class="MenuGroup">
+                    <h1>Objenesis</h1>
+                    <ul>
+                                <li><a href="index.html">About</a></li>
+                                <li><a href="license.html">License</a></li>
+                                <li><a href="download.html">Download</a></li>
+                    </ul>
+                </div>
+                <div class="MenuGroup">
+                    <h1>Documentation</h1>
+                    <ul>
+                                <li class="currentLink">Twenty Second Tutorial</li>
+                                <li><a href="details.html">The Details</a></li>
+                                <li><a href="embedding.html">Embedding</a></li>
+                    </ul>
+                </div>
+                <div class="MenuGroup">
+                    <h1>Project Details</h1>
+                    <ul>
+                                <li><a href="support.html">Getting Support</a></li>
+                                <li><a href="acknowledgements.html">Acknowledgements</a></li>
+                                <li><a href="source.html">Source Repository</a></li>
+                    </ul>
+                </div>
+        </div>
+
+  </body>
+</html>
