@@ -19,3 +19,16 @@ mvn eclipse:eclipse -DdownloadSources=true
 in objenesis root directory and all eclipse projects will be created.
 
 If you didn't figure it out yet, you then need to import all the projects in your workspace. If they're already there, just refresh them.
+
+= Build a release =
+
+Done in two steps from the root directory.
+
+# mvn install (to build and test the release)
+# ant (to create a single jar)
+
+The result will be a jar in _target_ dir named objenesis-version.jar.
+
+= Build the site =
+
+From the website directory, just call _ant_. The result is available in _build/website_.
