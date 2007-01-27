@@ -25,9 +25,15 @@ If you didn't figure it out yet, you then need to import all the projects in you
 Done in two steps from the root directory.
 
   # `mvn install` (to build and test the release)
-  # `mvn package assembly:assembly` (to create the final jar)
+  # `mvn -Pbin package assembly:assembly` (to create the final jar)
+  # `mvn -Psrc package assembly:assembly` (to create the source jar)
+  # `mvn -Ptck package assembly:assembly` (to create the tck executable jar)
 
-The result will be a jar in _target_ dir named objenesis-version.jar.
+The results will be three jars in _target_ dir named 
+
+  * `objenesis-version.jar`.
+  * `objenesis-version-sources.jar`.
+  * `objenesis-version-tck.jar`.
 
 *Note:* The _package_ target needs to be called because of a maven quirk. The artifact file is not initialized correctly otherwise and you get an error...
 
