@@ -43,4 +43,26 @@ The results will be three jars in _target_ dir named
 
 Call `mvn antrun:run xsite:run` from the _website_ directory. The result is available in _target/xsite_.
 
+= Test =
 
+Normal tests are done like usual through `mvn test`. To perform tests on every supported platforms, call `mvn -Pjvm-test test`. This will launch the TCK tests on all JVMs. The path for these JVMs should be specified in the settings.xml file of your home directory. Here's an exemple:
+{{{
+<settings xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                      http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+  <profiles>
+    <profile>
+      <id>jvm-test</id>
+      
+      <properties>
+        <sun_jdk>C:\Program Files\Java\jre1.6.0\bin\java.exe</sun_jdk>
+        <jrockit>C:\Program Files\Java\jrockit-R26.4.0-jre1.4.2_11\bin\java.exe</jrockit>
+      </properties>
+      
+    </profile>
+  </profiles>
+
+</settings>
+}}}
