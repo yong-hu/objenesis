@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>Objenesis : Embedding</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
         <link rel="stylesheet" type="text/css" href="style.css"/>
         
     
@@ -18,7 +19,30 @@
                 <h1 class="FirstChild">Embedding</h1>
                 
 
-<em>TODO</em>
+Objenesis is <a href="http://tonicsystems.com/products/jarjar/">jarjar</a> compliant.
+
+<h1>Ant</h1>
+
+<p>A jarjar ant task is available. You just need to replace your usual jar task with 
+jarjar. Depending on the complexity of your project, you will then have different
+parameters. Here's an example:</p>
+
+<pre>
+&lt;jarjar jarfile="${temp directory}/easymockclassextension.jar"&gt;
+  &lt;fileset dir="tmp" includes="org/easymock/classextension/*.class
+    org/easymock/classextension/internal/*.class"/&gt;
+  &lt;zipfileset src="lib/objenesis-1.0.jar"/&gt;
+  &lt;rule pattern="org.objenesis.**"
+    result="org.easymock.classextension.internal.objenesis.@1"/&gt;
+&lt;/jarjar&gt;
+</pre>
+
+<h1>Maven</h1>
+   
+<p>For Maven 2, a plugin is currently in under construction at <a href="http://mojo.codehaus.org/">
+Mojo</a>. However, you can use the 
+<a href="http://maven.apache.org/plugins/maven-antrun-plugin/">antrun plugin</a> 
+to call the jarjar ant task.</p>
 
 
                 <br/><br/>
