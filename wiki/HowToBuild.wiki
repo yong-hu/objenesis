@@ -2,9 +2,9 @@ How to build and develop Objenesis.
 
 = Maven =
 
-Use Maven 2.0.4. 
+Tested with at Maven 2.0.4. I now use Maven 2.0.7.
 
-*Important:* You need to compile the assembly plugin 2.2-SNAPSHOT from the maven sources or to retrieve them from their snapshot repository (it doesn't always work). The official 2.1 version won't work.
+*Important:* For Objenesis 1.0, you need to use the assembly plugin version 2.2-beta-1. Version 2.1 doesn't work.
 
 = Eclipse =
 
