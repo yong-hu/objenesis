@@ -2,7 +2,7 @@ How to build and develop Objenesis.
 
 = Maven =
 
-I'm using Maven 2.0.7.
+I'm using Maven 2.1.0.
 
 = Eclipse =
 
