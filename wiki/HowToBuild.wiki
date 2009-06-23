@@ -32,10 +32,6 @@ Call `build_release.bat` from Objenesis root directory. This will build the foll
 || tck jar || target ||
 || website || target/xsite ||
 
-*Important:* Due to a [http://jira.codehaus.org/browse/MREPOSITORY-11 bug] in the maven repository plugin, you need to add the javadoc manually to the bundle jar. Do from `main\target`:
-
-`jar uvf objenesis-x.y-bundle.jar objenesis-x.y-javadoc.jar`
-
 = Deliver a release =
 
 We use the maven release plugin for that. From a clean checkout, call 
