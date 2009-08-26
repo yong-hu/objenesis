@@ -1,0 +1,22 @@
+-classpath
+'D:/Programmation/objenesis/main/target/classes'
+-encoding
+'Cp1252'
+-protected
+-sourcepath
+'D:/Programmation/objenesis/main/src'
+-author
+-bottom
+'Copyright &#169; 2006-2009 Joe Walnes, Henri Tremblay, Leonardo Mesquita. All Rights Reserved.'
+-charset
+'UTF-8'
+-d
+'D:/Programmation/objenesis/main/target/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Objenesis 1.2 API'
+-use
+-version
+-windowtitle
+'Objenesis 1.2 API'
