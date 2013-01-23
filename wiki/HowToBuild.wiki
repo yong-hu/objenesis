@@ -2,61 +2,78 @@ How to build and develop Objenesis.
 
 = Maven =
 
-I'm using Maven 2.1.0.
+I'm using Maven 3.0.4.
 
 = Eclipse =
 
-To create eclipse projects, we use maven. The first time we create your eclipse projects, launch, *having Eclipse being closed*, the following command in a shell.
-
-`mvn eclipse:add-maven-repo -Declipse.workspace=%YOUR_ECLIPSE_WORKSPACE%`
-
-Where `%YOUR_ECLIPSE_WORKSPACE%` is the path to... your eclipse workspace.
-
-Then, each time you need to generate the eclipse projects, just call
-
-`build_eclipse.bat`
-
-in Objenesis root directory and all eclipse projects will be created.
-
-If you didn't figure it out yet, you then need to import all the projects in your workspace. If they're already there, just refresh them.
+ # Install the M2E plugin and import the Objenesis Maven projects.
+ # Import the objenesis-formatting.xml file to get the right formatting.
 
 = Build a release =
 
-Call `build_release.bat` from Objenesis root directory. This will build the following artifacts:
+Use
+{{{
+mvn clean install -Pwebsite,release,android
+}}} 
+from the Objenesis root directory. This will build the following artifacts:
 
-|| *Artifact* || *Directory* ||
-|| binary jar || main/target ||
-|| source jar || main/target ||
-|| javadoc jar || main/target ||
-|| maven repo bundle || main/target ||
-|| tck jar || target ||
-|| website || target/xsite ||
+|| *Artifact* || *Directory* || *Content* ||
+|| objenesis-${project.version}-bin.zip || main/target || Binary, source and Javadoc ||
+|| objenesis-tck-${project.version}-.jar || tck/target || Tck standalone jar ||
+|| objenesis-tck-android-${project.version}-.apk || tck-android/target || Android Tck ||
+|| website || website/target/xsite || Website deployed in objenesis-docs branch ||
+
+== Build the Android TCK ==
+
+Specifying the _android_ Maven profile will build the Android TCK. You need some specific configuration first:
+ # Set the `ANDROID_HOME` environment variable so that it points to the "sdk" directory in your Android SDK installation.
+ # Add `$ANDROID_HOME/tools` and `$ANDROID_HOME/platform-tools` to your `PATH` to for access to the Android command-line tools.
+
+When the Android TCK is built, it will run during the Maven `integration-test` phase calling those commands
+{{{
+adb install -r target/objenesis-tck-android-${project.version}.apk
+adb shell am instrument -w org.objenesis.tck.android/.TckInstrumentation
+}}}
+
+It can run on an actual device or the Android simulator. 
+
+For an actual device, just connect it via USB.
+
+For the simulator:
+
+ # Run the Android SDK manager through Eclipse or by typing `android`
+ # Make sure the System Image for the version you want to test on is installed. 
+ # Run the Virtual Device Manager (Tools -> AVD Manager) and click "New" to define a new virtual device
+ # Again, be sure to select the System Image you're interested in. (The choice of CPU and device really shouldn't impact the Objenesis TCK.) 
+ # Make sure that your device has a little RAM and storage. 
+ # Once it's created, you can start it by clicking "Start". 
+ # Give it time to boot up and your good to go.
 
 = Deliver a release =
 
 We use the maven release plugin for that. From a clean checkout, call 
-
-`mvn release:prepare -DdryRun=true -Ptck,website`
-
+{{{
+mvn release:prepare -DdryRun=true -Prelease,website,android
+}}}
 from the Objenesis root directory. Answer the questions. You can press enter (to validate the default) for all of them expect the tag which should be something like `1_0`.
 
 If everything goes well, do the real release (dryRun=true does a release simulation).
-
-`mvn release:prepare -Dresume=false -Ptck,website`
-
+{{{
+mvn release:prepare -Dresume=false -Prelease,website,android
+}}}
 Give the same answers to the questions.
 
 At this point, the tag has been created and the version upgraded in the poms.
 
 Checkout the tagged version and build a release (see above) for it.
 
-Now just add the binaries, sources, maven bundle and tck to the [http://code.google.com/p/objenesis/downloads/list download section].
+Now just add the binaries, sources and TCKs to the [http://code.google.com/p/objenesis/downloads/list download section].
 
 Finally, check-in the website to objenesis-docs module. Don't forget to add the svn:mime-type property to newly added files.
 
 = Test =
 
-Normal tests are done like usual through `mvn test`. To perform tests on every supported platforms, call `mvn -Pjvm-test test`. This will launch the TCK tests on all JVMs. The path for these JVMs should be specified in the settings.xml file of your home directory. Here's an exemple:
+Normal tests are done as usual through `mvn test`. To perform tests on every supported platforms, call `mvn -Pjvm-test test`. This will launch the TCK tests on all JVMs. The path for these JVMs should be specified in the settings.xml file of your home directory. Here's an example:
 {{{
 <settings xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -76,4 +93,11 @@ Normal tests are done like usual through `mvn test`. To perform tests on every s
   </profiles>
 
 </settings>
+}}}
+
+= Upgrade the license =
+
+Every year, the copyrights must be extended which means that all file headers must be updated. To perform this boring task, use to following Maven command:
+{{{
+mvn install -Plicense -Dmaven.test.skip=true
 }}}
