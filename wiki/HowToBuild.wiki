@@ -53,9 +53,9 @@ For the simulator:
 
 We use the maven release plugin for that. From a clean checkout, call 
 {{{
-mvn release:prepare -DdryRun=true -Prelease,website,android
+mvn release:prepare -DdryRun=true -Darguments=-Dgpg.passphrase=thephrase -Prelease,website,android
 }}}
-from the Objenesis root directory. Answer the questions. You can press enter (to validate the default) for all of them expect the tag which should be something like `1_0`.
+from the Objenesis root directory. Answer the questions. You can press enter (to validate the default) for all of them expect the tag which should be something like `1_0`. The GPG parameter is required due to a bug in the `maven-release-plugin` that prevents the GPG plugin to ask for a password interactively.
 
 If everything goes well, do the real release (dryRun=true does a release simulation).
 {{{
