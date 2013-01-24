@@ -59,13 +59,14 @@ from the Objenesis root directory. Answer the questions. You can press enter (to
 
 If everything goes well, do the real release (dryRun=true does a release simulation).
 {{{
-mvn release:prepare -Dresume=false -Prelease,website,android
+mvn release:prepare -Dresume=false -Darguments=-Dgpg.passphrase=thephrase -Prelease,website,android
 }}}
 Give the same answers to the questions.
 
-At this point, the tag has been created and the version upgraded in the poms.
-
-Checkout the tagged version and build a release (see above) for it.
+At this point, the tag has been created and the version upgraded in the poms. You are now ready to upload the artifacts to Sonatype
+{{{
+mvn release:perform -Darguments=-Dgpg.passphrase=thephrase -Prelease,website,android
+}}}
 
 Now just add the binaries, sources and TCKs to the [http://code.google.com/p/objenesis/downloads/list download section].
 
