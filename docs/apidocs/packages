@@ -1,3 +1,4 @@
+org.objenesis.instantiator.android
 org.objenesis.instantiator.basic
 org.objenesis.instantiator.gcj
 org.objenesis.instantiator.jrockit

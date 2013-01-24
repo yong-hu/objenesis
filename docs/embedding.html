@@ -19,7 +19,7 @@
                 <h1 class="FirstChild">Embedding</h1>
                 
 
-Objenesis is <a href="http://tonicsystems.com/products/jarjar/">jarjar</a> and 
+Objenesis is <a href="https://code.google.com/p/jarjar/">jarjar</a> and 
 <a href="http://maven.apache.org/plugins/maven-shade-plugin/">maven-shade-plugin</a> compliant.
 
 <h1>Ant</h1>
@@ -32,7 +32,7 @@ parameters. Here's an example:</p>
 	&lt;jarjar jarfile="${temp directory}/easymockclassextension.jar"&gt;
 	  &lt;fileset dir="tmp" includes="org/easymock/classextension/*.class
 	    org/easymock/classextension/internal/*.class"/&gt;
-	  &lt;zipfileset src="lib/objenesis-1.2.jar"/&gt;
+	  &lt;zipfileset src="lib/objenesis-1.3.jar"/&gt;
 	  &lt;rule pattern="org.objenesis.**"
 	    result="org.easymock.classextension.internal.objenesis.@1"/&gt;
 	&lt;/jarjar&gt;

@@ -1,22 +1,24 @@
 -classpath
-'D:/Programmation/objenesis/main/target/classes'
+'D:/dev/java/objenesis/main/target/classes'
 -encoding
-'Cp1252'
+'UTF-8'
 -protected
 -sourcepath
-'D:/Programmation/objenesis/main/src'
+'D:/dev/java/objenesis/main/src'
 -author
 -bottom
-'Copyright &#169; 2006-2009 Joe Walnes, Henri Tremblay, Leonardo Mesquita. All Rights Reserved.'
+'Copyright &#169; 2006-2013 Joe Walnes, Henri Tremblay, Leonardo Mesquita. All Rights Reserved.'
 -charset
 'UTF-8'
 -d
-'D:/Programmation/objenesis/main/target/apidocs'
+'D:/dev/java/objenesis/main/target/apidocs'
 -docencoding
 'UTF-8'
 -doctitle
-'Objenesis 1.2 API'
+'Objenesis 1.3-SNAPSHOT API'
+-linkoffline
+'http://download.oracle.com/javase/1.3/docs/api' 'D:/dev/java/objenesis/main/target/javadoc-bundle-options'
 -use
 -version
 -windowtitle
-'Objenesis 1.2 API'
+'Objenesis 1.3-SNAPSHOT API'
