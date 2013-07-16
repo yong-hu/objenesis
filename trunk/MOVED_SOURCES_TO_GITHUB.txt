@@ -1,0 +1,2 @@
+Objenesis was migrated to GitHub
+You will find them here: https://github.com/easymock/objenesis
