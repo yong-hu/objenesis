@@ -2,15 +2,15 @@ Here are multiple benchmark that are meant to verify Objenesis performances.
 
 The source code is available [https://github.com/easymock/objenesis/tree/master/benchmark here] is you want to challenge it.
 
-= Sum implementations =
+= Sum implementations (CreateObject) =
 
-This benchmark compares two implementations working on HotSpot. We have also added and instantiation with the default constructor. You might notice it is quite slow compared to Objenesis.
+This benchmark compares two implementations working on HotSpot. They are instantiating the class Object. We have also added an instantiation with the default constructor.
 
 The munged constructor version is using a special constructor HotSpot is using to perform serialization.
 
 The unsafe version is using Unsafe.allocateInstance. A bit easier to implement in Objenesis but much slower than the munged version. So we kept the later one as the default for HotSpot.
 
 ||*Benchmark*||*Mean*||*Mean error*||*Units*||
-||createObjectWithConstructor||232240.724||150509.760||nsec/op||
-||createObjectWithSun||6.625||0.058||nsec/op||
-||createObjectWithUnsafe||20.533||0.102||nsec/op||
+||createObjectWithConstructor||3.509.724||0.017||nsec/op||
+||createObjectWithSun||6.995||0.087||nsec/op||
+||createObjectWithUnsafe||20.382||0.379||nsec/op||
