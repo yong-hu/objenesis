@@ -11,6 +11,6 @@ The munged constructor version is using a special constructor HotSpot is using t
 The unsafe version is using Unsafe.allocateInstance. A bit easier to implement in Objenesis but much slower than the munged version. So we kept the later one as the default for HotSpot.
 
 ||*Benchmark*||*Mean*||*Mean error*||*Units*||
-||createObjectWithConstructor||232240.724||150509.760  nsec/op||
-||createObjectWithSun||6.625||0.058  nsec/op||
-||createObjectWithUnsafe||20.533||0.102  nsec/op||
+||createObjectWithConstructor||232240.724||150509.760||nsec/op||
+||createObjectWithSun||6.625||0.058||nsec/op||
+||createObjectWithUnsafe||20.533||0.102||nsec/op||
