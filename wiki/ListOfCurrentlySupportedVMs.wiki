@@ -1,7 +1,7 @@
 == List of currently supported VMs ==
 
-   * Sun Hotspot VM, versions 1.3, 1.4, 1.5, 1.6 and 1.7
-   * Dalvik (Ice Cream Sandwich and Jelly Bean)
+   * Sun Hotspot VM, versions 1.3, 1.4, 1.5, 1.6, 1.7, 1.8
+   * Dalvik (Gingerbread to Jelly Bean)
    * BEA JRockit versions 7.0 (1.3.1), 1.4.2 and 1.5
    * GCJ version 3.4.4 (tested on Windows/Cygwin)
    * Aonix PERC (no serialization support), tested on version 5.0.0667
