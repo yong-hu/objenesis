@@ -2,12 +2,16 @@ How to build and develop Objenesis.
 
 = Maven =
 
-I'm using Maven 3.0.4.
+I'm using Maven 3.0.5.
 
 = Eclipse =
 
- # Install the M2E plugin and import the Objenesis Maven projects.
+I'm using Kepler.
+
+ # Install the M2E plugin
+ # Instal Android Development Tools
  # Import the objenesis-formatting.xml file to get the right formatting.
+ # Import the Objenesis Maven projects.
 
 = Build a release =
 
