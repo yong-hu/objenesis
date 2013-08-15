@@ -10,6 +10,7 @@ I'm using Kepler.
 
  # Install the M2E plugin
  # Instal Android Development Tools
+ # Instal Android Configurator for M2E
  # Import the objenesis-formatting.xml file to get the right formatting.
  # Import the Objenesis Maven projects.
 
