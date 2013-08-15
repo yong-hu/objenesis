@@ -74,7 +74,7 @@ mvn release:perform -Darguments=-Dgpg.passphrase=thephrase -Prelease,website,and
 
 Now just add the binaries, sources and TCKs to the [http://code.google.com/p/objenesis/downloads/list download section].
 
-Finally, check-in the website to objenesis-docs module. Don't forget to add the svn:mime-type property to newly added files.
+Finally, check-in the website in the gh-pages branch.
 
 = Test =
 
