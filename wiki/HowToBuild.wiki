@@ -4,6 +4,8 @@ How to build and develop Objenesis.
 
 I'm using Maven 3.0.5.
 
+There is a settings.xml example (`settings-example.xml`) in the project root directory.
+
 = Eclipse =
 
 I'm using Kepler.
@@ -11,7 +13,7 @@ I'm using Kepler.
  # Install the M2E plugin
  # Instal Android Development Tools
  # Instal Android Configurator for M2E
- # Import the objenesis-formatting.xml file to get the right formatting.
+ # Import the `objenesis-formatting.xml` file to get the right formatting.
  # Import the Objenesis Maven projects.
 
 = Build a release =
