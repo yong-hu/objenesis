@@ -116,7 +116,7 @@ Normal tests are done as usual through `mvn test`. To perform tests on every sup
 
 Every year, the copyrights must be extended which means that all file headers must be updated. To perform this boring task, use to following Maven command:
 {{{
-mvn install -Plicense -Dmaven.test.skip=true
+mvn install -Plicense -Dmaven.test.skip=true -Dskip=true
 }}}
 
 = Checking plugins and dependencies version =
