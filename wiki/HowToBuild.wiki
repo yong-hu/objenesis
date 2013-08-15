@@ -56,6 +56,14 @@ For the simulator:
  # Once it's created, you can start it by clicking "Start". 
  # Give it time to boot up and your good to go.
 
+== Build the Benchmark ==
+
+The benchmark project is using JMH which is still in a snapshot state. 
+
+So you first need to install JMH following the procedure explained [http://openjdk.java.net/projects/code-tools/jmh/ here]. As soon as it's installed, your project should compile normally.
+
+To run the benchmarks, look at the `launch.bat` file showing you how.
+
 = Deliver a release =
 
 We use the maven release plugin for that. From a clean checkout, call 
