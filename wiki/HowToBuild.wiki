@@ -28,7 +28,8 @@ from the Objenesis root directory. This will build the following artifacts:
 || objenesis-${project.version}-bin.zip || main/target || Binary, source and Javadoc ||
 || objenesis-tck-${project.version}-.jar || tck/target || Tck standalone jar ||
 || objenesis-tck-android-${project.version}-.apk || tck-android/target || Android Tck ||
-|| website || website/target/xsite || Website deployed in objenesis-docs branch ||
+|| objenesis-benchmark-${project.version}-.jar || benchmark/target || Performance benchmarks ||
+|| website || website/target/xsite || Website deployed in the gh-pages branch ||
 
 == Build the Android TCK ==
 
