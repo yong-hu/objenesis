@@ -16,7 +16,7 @@ I'm using Kepler.
  # Import the `objenesis-formatting.xml` file to get the right formatting.
  # Import the Objenesis Maven projects.
 
-= Build a release =
+= Build =
 
 Use
 {{{
@@ -69,13 +69,13 @@ To run the benchmarks, look at the `launch.bat` file showing you how.
 
 We use the maven release plugin for that. From a clean checkout, call 
 {{{
-mvn clean release:prepare -DdryRun=true -Darguments=-Dgpg.passphrase=thephrase -Prelease,website,android,benchmark
+mvn clean release:prepare -DdryRun=true -Darguments=-Dgpg.passphrase=thephrase -Pfull,release,website,android,benchmark
 }}}
 from the Objenesis root directory. Answer the questions. You can press enter (to validate the default) for all of them. The GPG parameter is required due to a bug in the `maven-release-plugin` that prevents the GPG plugin to ask for a password interactively.
 
 If everything goes well, do the real release (dryRun=true does a release simulation).
 {{{
-mvn clean release:prepare -Dresume=false -Darguments=-Dgpg.passphrase=thephrase -Prelease,website,android,benchmark
+mvn clean release:prepare -Dresume=false -Darguments=-Dgpg.passphrase=thephrase -Pfull,release,website,android,benchmark
 }}}
 Give the same answers to the questions.
 
@@ -87,7 +87,7 @@ git push origin --tags
 }}}
 You are now ready to upload the artifacts to Sonatype.
 {{{
-mvn release:perform -Darguments=-Dgpg.passphrase=thephrase -Prelease,website,android,benchmark
+mvn release:perform -Darguments=-Dgpg.passphrase=thephrase -Pfull,release,website,android,benchmark
 }}}
 
 Now just add the binaries, sources and TCKs to the [http://code.google.com/p/objenesis/downloads/list download section] (in this order).
