@@ -97,7 +97,9 @@ Now just add the binaries, sources and TCKs to the [http://code.google.com/p/obj
 || objenesis-tck-1.x.jar || Objenesis 1.x TCK ||
 || objenesis-1.x-bin.zip || Objenesis 1.x Bundle ||	
 
-Finally, check-in the website in the gh-pages branch.
+Close and release the repository at [http://oss.sonatype.org Sonatype].
+
+Finally, check-in the website and javadoc in the gh-pages branch.
 
 = Test =
 
