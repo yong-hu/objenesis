@@ -26,8 +26,15 @@ During migration to Java 5, the cache implementation using a synchronize was rep
 ||Cached (Java 5)||238.946||nsec/op||
 ||No cache (Java 5)||5253937.944||nsec/op||
 
-Then, the standard strategy used by Objenesis deduces the best instantiator for your platform. Another possibility is to decide that you known the platform you are on and you prefer to use the single instantiator that will create always the same type of instantiator using reflection.
+Then, the standard strategy used by Objenesis deduces the best instantiator for your platform. Another possibility is to decide that you known the platform you are on and you prefer to use the single instantiator that will create always the same type of instantiator using reflection. Finally, if you want to avoid using reflection, you can use a custom strategy returning always one instantiator using "new".
+
+As you will see, it doesn't really matter which one you use, the performance are similar.
 
 ||*Type*||*Mean*||*Units*||
-||Single||5264448.640||nsec/op||
-||Standard||5207767.604||nsec/op||
+||Custom||5270008.460||nsec/op||
+||Single||5205981.442||nsec/op||
+||Standard||5269205.477||nsec/op||
+
+Both benchmarks are performed in a highly concurrent environment to reflect what is expected to be normal usage.
+
+They were executed on Windows 8 using Java 1.7.0_25 64 bits version.
