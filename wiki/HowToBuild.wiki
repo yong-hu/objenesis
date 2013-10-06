@@ -95,9 +95,9 @@ mvn release:perform -Darguments=-Dgpg.passphrase=thephrase -Pfull,release,websit
 Now just add the binaries, sources and TCKs to the [http://code.google.com/p/objenesis/downloads/list download section] (in this order).
 
 || *File* || *Summary* ||
-|| objenesis-tck-android-1.x.apk || Objenesis 1.x Android TCK ||
-|| objenesis-tck-1.x.jar || Objenesis 1.x TCK ||
-|| objenesis-1.x-bin.zip || Objenesis 1.x Bundle ||	
+|| objenesis-tck-android-2.x.apk || Objenesis 2.x Android TCK ||
+|| objenesis-tck-2.x.jar || Objenesis 2.x TCK ||
+|| objenesis-2.x-bin.zip || Objenesis 2.x Bundle ||	
 
 Close and release the repository at [http://oss.sonatype.org Sonatype].
 
