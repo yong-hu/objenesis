@@ -92,7 +92,7 @@ You are now ready to upload the artifacts to Sonatype.
 mvn release:perform -Darguments=-Dgpg.passphrase=thephrase -Pfull,release,website,android,benchmark
 }}}
 
-Now just add the binaries, sources and TCKs to the [http://code.google.com/p/objenesis/downloads/list download section] (in this order).
+Now just add the binaries to the [http://code.google.com/p/objenesis/downloads/list download section] (in this order).
 
 || *File* || *Summary* ||
 || objenesis-tck-android-2.x.apk || Objenesis 2.x Android TCK ||
